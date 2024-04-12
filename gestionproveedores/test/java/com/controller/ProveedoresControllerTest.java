@@ -28,7 +28,7 @@ public class ProveedoresControllerTest {
 
     @Test
     public void testGetProveedores() throws Exception {
-        mockMvc.perform(get("/proveedores/{idCliente}", 5))
+        mockMvc.perform(get("/proveedores/{idCliente}", 1))
                 .andExpect(status().isOk());
     }
 }

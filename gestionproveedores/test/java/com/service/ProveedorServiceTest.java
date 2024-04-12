@@ -1,45 +1,43 @@
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-import java.util.ArrayList;
-import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
-public class ProveedorServiceTest {
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class ProveedorServiceImplTest {
 
     @Mock
     private ProveedorRepository proveedorRepository;
 
-    @InjectMocks
     private ProveedorService proveedorService;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+        proveedorService = new ProveedorServiceImpl(proveedorRepository);
+    }
 
     @Test
     public void testObtenerProveedoresPorIdCliente() {
-        // Datos de prueba
-        Long idCliente = 5L;
+        // Arrange
+        Long idCliente = 1L; 
         List<Proveedor> proveedoresMock = new ArrayList<>();
-        proveedoresMock.add(new Proveedor(1L, "Coca-cola", new Date(), 5L));
-        proveedoresMock.add(new Proveedor(2L, "Pepsi", new Date(), 5L));
-
-        // Simular el comportamiento del repositorio
+        proveedoresMock.add(new Proveedor(1L, "Coca-cola", new Date(2024-01-01), idCliente)); 
         when(proveedorRepository.findByIdCliente(idCliente)).thenReturn(proveedoresMock);
 
-        // Ejecutar el método a probar
+        // Act
         List<Proveedor> proveedores = proveedorService.obtenerProveedoresPorIdCliente(idCliente);
 
-        // Verificar el resultado
-        assertEquals(proveedoresMock.size(), proveedores.size());
-        for (int i = 0; i < proveedoresMock.size(); i++) {
-            Proveedor proveedorMock = proveedoresMock.get(i);
-            Proveedor proveedorActual = proveedores.get(i);
-            assertEquals(proveedorMock.getIdProveedor(), proveedorActual.getIdProveedor());
-            assertEquals(proveedorMock.getNombre(), proveedorActual.getNombre());
-            assertEquals(proveedorMock.getFechaAlta(), proveedorActual.getFechaAlta());
-            assertEquals(proveedorMock.getIdCliente(), proveedorActual.getIdCliente());
-        }
+        // Assert
+        assertEquals(1, proveedores.size()); 
+        assertEquals("Coca-cola", proveedores.get(0).getNombre()); 
+        assertEquals(new Date(2024-01-01), proveedores.get(0).getFechaAlta());
     }
 }

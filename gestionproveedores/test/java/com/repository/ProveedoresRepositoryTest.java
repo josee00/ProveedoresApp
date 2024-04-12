@@ -18,7 +18,7 @@ public class ProveedoresRepositoryTest {
 
     @Test
     public void testFindByIdCliente() {
-        List<Proveedor> proveedores = proveedoresRepository.findByIdCliente(5L);
+        List<Proveedor> proveedores = proveedoresRepository.findByIdCliente(1L);
         assertThat(proveedores).isNotNull();
         assertThat(proveedores).hasSizeGreaterThan(0);
     }
