@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "f17a80e7-d7ef-4980-85ce-12c25e077f7f",
+		"name": "Pruebas ProveedoresApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ProveedorExistente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/ProveedoresApp/proveedores/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"ProveedoresApp",
+						"proveedores",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProveedorInexistente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8086/ProveedoresApp/proveedores/44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"ProveedoresApp",
+						"proveedores",
+						"44"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
