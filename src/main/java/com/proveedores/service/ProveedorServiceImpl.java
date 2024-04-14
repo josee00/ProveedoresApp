@@ -1,7 +1,14 @@
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import java.util.List;
+package com.proveedores.service;
+
 import java.util.Collections;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import com.proveedores.model.Proveedores;
+import com.proveedores.repository.ProveedorRepository;
 
 @Service
 public class ProveedorServiceImpl implements ProveedorService {
@@ -10,8 +17,8 @@ public class ProveedorServiceImpl implements ProveedorService {
     private ProveedorRepository proveedorRepository;
 
     @Override
-    public List<Proveedor> obtenerProveedoresPorIdCliente(Long idCliente) {
-        List<Proveedor> proveedores = proveedorRepository.findByIdCliente(idCliente);
+    public List<Proveedores> obtenerProveedoresPorIdCliente(Long idCliente) {
+        List<Proveedores> proveedores = proveedorRepository.findByIdCliente(idCliente);
         return proveedores.isEmpty() ? Collections.emptyList() : proveedores;
     }
 }

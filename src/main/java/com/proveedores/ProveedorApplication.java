@@ -1,7 +1,13 @@
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+package com.proveedores;
 
-@SpringBootApplication
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+
+@Configuration
+@ComponentScan("com.proveedores") 
+@EnableAutoConfiguration
 public class ProveedorApplication {
 
     public static void main(String[] args) {
