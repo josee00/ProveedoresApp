@@ -5,6 +5,7 @@ App Proveedores
 2. Abre tu IDE (se recomienda Eclipse).
 3. Importa el proyecto Maven seleccionando `File > Import > Maven > Existing Maven Projects`.
 4. Selecciona la carpeta raíz del proyecto y haz clic en "Finish".
+5. Agregar y configurar Tomcat y desplegar el .war generado
 
 ## Configuración de la base de datos
 1. Abre MySQL Workbench o tu cliente de base de datos.
@@ -15,8 +16,9 @@ App Proveedores
 2. Importa la colección de solicitudes incluida en el proyecto.
 
 ## Ejecutar colección de Postman
-2. Abre la colección de Postman importada.
-3. Haz clic en el botón "Run" para ejecutar todas las solicitudes.
+1. Abre la colección de Postman importada.
+2. Haz clic en el botón "Run" para ejecutar todas las solicitudes.
+3. En este caso en el tomcat se usó el puerto 8086, si se quiere usar otro deberá cambiarse la url de postman.
 4. Verifica que todas las solicitudes se ejecuten correctamente y devuelvan las respuestas esperadas.
 
 ## Configuración del archivo application.properties
